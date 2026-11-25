@@ -11,42 +11,43 @@ Trabajo desarrollado para la **Actividad 1** del Programa Superior Universitario
 Todo el análisis se ejecutó en **Google Colab** vinculado a **Google Drive**, en tres notebooks consecutivos. Cada notebook lee las salidas del anterior.
 
 ```mermaid
+%%{init: {"fontFamily": "Arial, Helvetica, sans-serif", "flowchart": {"htmlLabels": false, "padding": 20, "nodeSpacing": 40, "rankSpacing": 50}}}%%
 graph TD
-    A["Datasets HemoPI-1, HemoPI-2 y HemoPI-3<br>12 archivos FASTA"] --> B
+    A["Datasets HemoPI-1, 2 y 3<br/>12 archivos FASTA"] --> B
 
-    subgraph P1["Parte 1: Recolección y curación de datos"]
-        B["Lectura de FASTA<br>id, secuencia y etiqueta"] --> C["Curación<br>faltantes, aminoácidos no estándar,<br>etiquetas contradictorias, duplicados"]
-        C --> D["Fuga de datos<br>quitar del entrenamiento lo que está en validación"]
+    subgraph P1["Parte 1: Curación de datos"]
+        B["Lectura de FASTA<br/>id, secuencia y etiqueta"] --> C["Curación de datos<br/>faltantes, no estándar,<br/>contradictorias y duplicados"]
+        C --> D["Control de fuga de datos<br/>entrenamiento vs validación"]
     end
 
-    D --> E["Entrenamiento (archivos model)<br>Validación externa (archivos validation)"]
+    D --> E["Entrenamiento: archivos model<br/>Validación: archivos validation"]
     E --> F
 
     subgraph P2["Parte 2: SMILES y descriptores"]
-        F["Secuencia a BILN y SMILES<br>pyPept"] --> G["45 descriptores 2D<br>Mordred"]
-        G --> H["Limpieza ajustada solo con entrenamiento<br>NaN, constantes y correlación r > 0,9"]
+        F["Secuencia a SMILES<br/>pyPept (vía BILN)"] --> G["45 descriptores 2D<br/>Mordred"]
+        G --> H["Limpieza con entrenamiento<br/>NaN, constantes, r > 0,9"]
     end
 
     H --> I
 
-    subgraph P3["Parte 3: Modelos de machine learning"]
-        I["Pipeline: selección de variables y clasificador<br>GridSearchCV con validación cruzada de 5 pliegues"] --> J["Regresión logística + RFE"]
-        I --> K["Random Forest + importancia"]
-        I --> L["XGBoost + importancia"]
-        J --> M["Evaluación<br>entrenamiento, CV y validación externa"]
+    subgraph P3["Parte 3: Modelos de ML"]
+        I["Pipeline por modelo<br/>selección de variables +<br/>GridSearchCV (CV de 5)"] --> J["Regresión logística<br/>+ RFE"]
+        I --> K["Random Forest<br/>+ importancia"]
+        I --> L["XGBoost<br/>+ importancia"]
+        J --> M["Evaluación<br/>entrenamiento, CV y externa"]
         K --> M
         L --> M
         M --> N["Curvas ROC"]
-        M --> O["Importancia de descriptores<br>y correlaciones"]
+        M --> O["Top 10 descriptores<br/>y correlaciones"]
     end
 
-    N --> Q["Interpretación y limitaciones"]
+    N --> Q["Interpretación<br/>y limitaciones"]
     O --> Q
 ```
 
 ## Datos
 
-Los datasets provienen del repositorio de GitHub asociado al artículo de Plisson et al. (2020), indicado en su sección de disponibilidad de datos. Cada carpeta contiene 4 archivos FASTA:
+Los datasets provienen del repositorio de GitHub asociado al artículo de Plisson et al. (2020), indicado en su sección de disponibilidad de datos. Están en la carpeta `datos/`. Cada dataset contiene 4 archivos FASTA:
 
 | Archivo | Contenido | Uso en este trabajo |
 |---|---|---|
@@ -62,25 +63,27 @@ En total son 12 archivos (3 datasets × 4). `class0` se codifica como `label = 0
 ```
 hemolytic-activity-ml-prediction/
 ├── README.md
-├── notebooks/
-│   ├── Act1_Parte1_Curacion_HemoPI.ipynb
-│   ├── Act1_Parte2_SMILES_Mordred_v2.ipynb
-│   └── Act1_Parte3_Modelos_ML.ipynb
-└── Act1_PSU/                        # misma estructura que en Google Drive
-    ├── HemoPI-1/                    # datos originales (4 FASTA)
-    ├── HemoPI-2/
-    ├── HemoPI-3/
-    ├── datos_procesados/            # salida de la Parte 1
-    ├── descriptores/                # salida de la Parte 2
-    └── resultados_modelos/          # salida de la Parte 3
-        ├── modelos/
-        ├── tablas/
-        └── figuras/
+├── LICENSE
+├── 1_Curacion_HemoPI.ipynb      # Parte 1: recolección y curación
+├── 2_SMILES_Mordred.ipynb       # Parte 2: SMILES y descriptores
+├── 3_Modelos_ML.ipynb           # Parte 3: modelos de machine learning
+├── datos/                       # datos originales (4 FASTA por dataset)
+│   ├── HemoPI-1/
+│   ├── HemoPI-2/
+│   └── HemoPI-3/
+├── datos_procesados/            # salida de la Parte 1
+├── descriptores/                # salida de la Parte 2
+└── resultados_modelos/          # salida de la Parte 3
+    ├── modelos/
+    ├── tablas/
+    └── figuras/
 ```
+
+La raíz del repositorio equivale a la carpeta `Act1_PSU` de Google Drive, donde se ejecutaron los notebooks.
 
 ## Descripción de los notebooks
 
-### Parte 1: `Act1_Parte1_Curacion_HemoPI.ipynb`
+### Parte 1: `1_Curacion_HemoPI.ipynb`
 Recolección y curación de los datos peptídicos.
 
 1. Monta Google Drive y comprueba que existan los 12 archivos FASTA.
@@ -94,22 +97,22 @@ Recolección y curación de los datos peptídicos.
    - secuencias presentes a la vez en entrenamiento y validación (se quitan del entrenamiento para evitar fuga de datos).
 5. Genera gráficos de balance de clases y de longitud de secuencias.
 
-**Salidas** (`Act1_PSU/datos_procesados/`): `HemoPI-X_train.csv`, `HemoPI-X_validation.csv` y `registro_curacion.csv`.
+**Salidas** (`datos_procesados/`): `HemoPI-X_train.csv`, `HemoPI-X_validation.csv` y `registro_curacion.csv`.
 
-### Parte 2: `Act1_Parte2_SMILES_Mordred_v2.ipynb`
+### Parte 2: `2_SMILES_Mordred.ipynb`
 Conversión de secuencias a SMILES y cálculo de descriptores fisicoquímicos.
 
 1. Convierte cada secuencia a **SMILES** con **pyPept** (secuencia → BILN → molécula RDKit → SMILES). Incluye un parche de compatibilidad con versiones recientes de pandas.
 2. Calcula con **Mordred** un subconjunto de **45 descriptores 2D**, agrupados en seis categorías: tamaño y composición, lipofilia y refractividad, polaridad y puentes de hidrógeno, ionizables y carga parcial, topología y forma, y polarizabilidad. Se seleccionaron a criterio porque calcular los 1613 descriptores de Mordred resultaba muy lento y pesado.
 3. Limpia los descriptores, ajustando todo **solo con el entrenamiento**: se eliminan los descriptores con más de 5 % de valores faltantes, los constantes y los de alta correlación (|r| > 0,9). Se protegen `MW`, `SLogP`, `nHBDon` y `nHBAcc`, equivalentes en Mordred de `MolWt`, `MolLogP`, `NumHDonors` y `NumHAcceptors`.
 
-**Salidas** (`Act1_PSU/descriptores/`):
+**Salidas** (`descriptores/`):
 - `HemoPI-X_train_smiles.csv` y `HemoPI-X_validation_smiles.csv`;
 - `HemoPI-X_train_descriptores_crudo.csv` y `HemoPI-X_valid_descriptores_crudo.csv`, que son la caché del cálculo;
 - `HemoPI-X_train_descriptores.csv` y `HemoPI-X_validation_descriptores.csv`, que son las tablas finales;
 - `HemoPI-X_descriptores_seleccionados.txt` y `resumen_filtrado_descriptores.csv`.
 
-### Parte 3: `Act1_Parte3_Modelos_ML.ipynb`
+### Parte 3: `3_Modelos_ML.ipynb`
 Construcción, evaluación e interpretación de los modelos.
 
 1. Entrena **3 algoritmos** en cada dataset, con selección de variables dentro de un `Pipeline`:
@@ -125,7 +128,7 @@ Construcción, evaluación e interpretación de los modelos.
 4. Genera las curvas ROC, el top 10 de descriptores más importantes por modelo y el análisis de correlaciones entre los descriptores seleccionados.
 5. Guarda el modelo final y los pesos o importancias de los descriptores.
 
-**Salidas** (`Act1_PSU/resultados_modelos/`):
+**Salidas** (`resultados_modelos/`):
 - `modelos/`: `HemoPI-X_<modelo>_modelo_final.joblib` y `HemoPI-X_<modelo>_gridsearch.joblib`.
 - `tablas/`: métricas, hiperparámetros, importancias, descriptores consistentes entre modelos y pares correlacionados.
 - `figuras/`: `curvas_roc.png`, `top10_importancias.png` y `correlacion_HemoPI-X.png`.
@@ -134,10 +137,11 @@ Construcción, evaluación e interpretación de los modelos.
 
 Los notebooks se ejecutaron en **Google Colab** con la carpeta `Act1_PSU` almacenada en Google Drive (`/content/drive/MyDrive/Act1_PSU`).
 
-1. Copia la carpeta `Act1_PSU` a tu Google Drive, en la raíz de *Mi unidad*.
-2. Abre cada notebook en Colab (*Archivo → Subir cuaderno*) y ejecútalos **en orden**: Parte 1, Parte 2 y Parte 3.
-3. Acepta el montaje de Drive cuando Colab lo solicite.
-4. Si guardas la carpeta en otra ruta, cambia la variable `BASE_DIR` en la primera celda de configuración de cada notebook.
+1. Sube a tu Google Drive el contenido del repositorio en una carpeta llamada `Act1_PSU`, en la raíz de *Mi unidad*.
+2. Los notebooks esperan los FASTA originales directamente en `Act1_PSU/HemoPI-X/`. En el repositorio están dentro de `datos/`. Mueve las carpetas `HemoPI-1`, `HemoPI-2` y `HemoPI-3` a la raíz de `Act1_PSU`, o cambia en `1_Curacion_HemoPI.ipynb` la ruta `{BASE_DIR}/{ds}/` por `{BASE_DIR}/datos/{ds}/` (aparece en dos celdas).
+3. Abre cada notebook en Colab (*Archivo → Subir cuaderno*) y ejecútalos **en orden**: `1_`, `2_` y `3_`.
+4. Acepta el montaje de Drive cuando Colab lo solicite.
+5. Si guardas la carpeta en otra ruta, cambia la variable `BASE_DIR` en la primera celda de configuración de cada notebook.
 
 Los cálculos más lentos (descriptores de la Parte 2 y `GridSearchCV` de la Parte 3) se guardan en Drive. Si se corta la sesión, al volver a ejecutar se cargan sin recalcular. Para forzar el reentrenamiento de la Parte 3, pon `RECALCULAR = True`.
 
@@ -161,7 +165,7 @@ Entorno: Google Colab (Python 3). Las librerías se instalan en los propios note
 
 ## Resultados
 
-> Completar tras la ejecución final: tabla de métricas en validación externa por dataset y modelo (`tablas/metricas_todos_los_niveles.csv`) y figuras de `figuras/`.
+> Completar tras la ejecución final: tabla de métricas en validación externa por dataset y modelo (`resultados_modelos/tablas/metricas_todos_los_niveles.csv`) y figuras de `resultados_modelos/figuras/`.
 
 | Dataset | Modelo | AUC-ROC (CV) | AUC-ROC (externa) | MCC (externa) |
 |---|---|---|---|---|
@@ -176,6 +180,10 @@ Entorno: Google Colab (Python 3). Las librerías se instalan en los propios note
 - La validación externa es una partición aleatoria de la misma fuente: péptidos de secuencia parecida pueden quedar a ambos lados del corte.
 - El tamaño de muestra es moderado, por lo que las diferencias pequeñas entre modelos pueden no ser significativas.
 - La importancia de variables indica asociación estadística, no causalidad.
+
+## Licencia
+
+Ver el archivo [LICENSE](LICENSE).
 
 ## Referencias
 
