@@ -165,13 +165,27 @@ Entorno: Google Colab (Python 3). Las librerías se instalan en los propios note
 
 ## Resultados
 
-> Completar tras la ejecución final: tabla de métricas en validación externa por dataset y modelo (`resultados_modelos/tablas/metricas_todos_los_niveles.csv`) y figuras de `resultados_modelos/figuras/`.
+Desempeño en la **validación externa (20 %)** de los modelos finales, con umbral de clasificación de 0,5. Entre corchetes, el intervalo de confianza del 95 % (*bootstrap*, 1000 remuestreos). En negrita, el mayor AUC-ROC y MCC de cada dataset.
 
-| Dataset | Modelo | AUC-ROC (CV) | AUC-ROC (externa) | MCC (externa) |
-|---|---|---|---|---|
-| HemoPI-1 | Regresión logística | | | |
-| HemoPI-1 | Random Forest | | | |
-| HemoPI-1 | XGBoost | | | |
+| Dataset | Modelo | Accuracy | Precision | Recall | Especificidad | F1 | AUC-ROC [IC 95 %] | MCC [IC 95 %] | Kappa |
+|---|---|---|---|---|---|---|---|---|---|
+| HemoPI-1 | Regresión logística | 0,882 | 0,889 | 0,873 | 0,891 | 0,881 | 0,960 [0,936; 0,981] | 0,764 [0,673; 0,846] | 0,764 |
+| HemoPI-1 | Random Forest | 0,936 | 0,962 | 0,909 | 0,964 | 0,935 | **0,989** [0,978; 0,997] | **0,874** [0,811; 0,936] | 0,873 |
+| HemoPI-1 | XGBoost | 0,927 | 0,943 | 0,909 | 0,945 | 0,926 | 0,983 [0,967; 0,994] | 0,855 [0,786; 0,919] | 0,855 |
+| HemoPI-2 | Regresión logística | 0,713 | 0,741 | 0,727 | 0,696 | 0,734 | 0,764 [0,699; 0,833] | 0,422 [0,307; 0,555] | 0,422 |
+| HemoPI-2 | Random Forest | 0,762 | 0,782 | 0,782 | 0,739 | 0,782 | **0,856** [0,796; 0,908] | **0,521** [0,396; 0,644] | 0,521 |
+| HemoPI-2 | XGBoost | 0,757 | 0,770 | 0,791 | 0,717 | 0,780 | 0,830 [0,773; 0,885] | 0,510 [0,389; 0,633] | 0,510 |
+| HemoPI-3 | Regresión logística | 0,729 | 0,754 | 0,746 | 0,709 | 0,750 | 0,791 [0,741; 0,839] | 0,455 [0,352; 0,551] | 0,455 |
+| HemoPI-3 | Random Forest | 0,794 | 0,789 | 0,847 | 0,730 | 0,817 | **0,859** [0,820; 0,898] | **0,583** [0,497; 0,671] | 0,581 |
+| HemoPI-3 | XGBoost | 0,748 | 0,778 | 0,751 | 0,743 | 0,764 | 0,825 [0,779; 0,869] | 0,493 [0,391; 0,587] | 0,493 |
+
+**Observaciones**
+
+- **Random Forest obtuvo el mayor AUC-ROC y MCC en los tres datasets.** Sin embargo, sus intervalos de confianza se solapan con los de XGBoost, por lo que la diferencia entre ambos no es concluyente.
+- **La regresión logística fue el modelo con menor desempeño en los tres datasets**, aunque en HemoPI-1 se mantiene alta (AUC-ROC de 0,960).
+- **El desempeño es claramente mayor en HemoPI-1** (AUC-ROC entre 0,960 y 0,989) que en HemoPI-2 y HemoPI-3 (entre 0,764 y 0,859).
+
+Las métricas de entrenamiento y de validación cruzada, la comparación interno-externo, las importancias de descriptores y las curvas ROC están en `resultados_modelos/tablas/` y `resultados_modelos/figuras/`.
 
 ## Limitaciones
 
