@@ -1,0 +1,18 @@
+descriptor,importancia,coef_estandarizado,significado
+MW,0.20088676836902067,4.053834812386227,masa molecular
+nHBAcc,0.1944952989148835,-3.9248568732922546,aceptores de puentes de H
+nHBDon,0.16301275003669388,3.289548467162618,donadores de puentes de H
+SlogP_VSA5,0.06519032327295313,-1.3155211966432498,superficie por intervalo de contribución a logP (5)
+nAromAtom,0.06468322076002114,-1.3052880198289563,átomos aromáticos
+nBase,0.06090051204467559,-1.2289540910197885,grupos básicos
+SLogP,0.06051310947086396,1.221136423122216,lipofilia estimada (logP de Crippen)
+nAcid,0.03548934806518396,-0.7161644135329761,grupos ácidos
+PEOE_VSA6,0.03458377521167503,0.697890224603007,superficie por rango de carga parcial PEOE (6)
+WPath,0.025143361885208677,-0.5073855114411925,índice de Wiener (tamaño y compactación)
+AMW,0.02439654580530341,0.49231498664879575,masa atómica media
+FilterItLogS,0.019976948297752168,-0.40312883278556527,solubilidad acuosa estimada (logS)
+fragCpx,0.01589336885681896,0.3207234228563736,complejidad de fragmentos
+nARing,0.01299901362146045,-0.26231620117736687,anillos aromáticos
+FCSP3,0.012803872163998836,0.2583783050181509,fracción de carbonos sp3
+nS,0.006072520568992439,-0.12254164612918939,átomos de azufre
+BalabanJ,0.0029592626544941024,-0.05971703395489865,índice de Balaban (ramificación y forma)

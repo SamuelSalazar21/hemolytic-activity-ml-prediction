@@ -1,0 +1,6 @@
+paso,filas_antes,filas_despues,eliminadas
+Faltantes / vacías,3741,3741,0
+Aminoácidos no estándar,3741,3741,0
+Etiquetas contradictorias,3741,3741,0
+Duplicados exactos (dataset + partición),3741,3741,0
+Fuga entrenamiento -> validación,3741,3741,0

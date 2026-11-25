@@ -1,0 +1,17 @@
+descriptor,Regresión logística,Random Forest,XGBoost,n_modelos,importancia_media,significado
+nAcid,0.014,0.211,0.468,3,0.231,grupos ácidos
+FilterItLogS,0.107,0.151,0.138,3,0.132,solubilidad acuosa estimada (logS)
+AMW,0.119,0.144,0.053,3,0.105,masa atómica media
+nHBDon,0.219,0.027,0.03,3,0.092,donadores de puentes de H
+nS,0.06,0.064,0.117,3,0.081,átomos de azufre
+SLogP,0.046,0.076,0.03,3,0.051,lipofilia estimada (logP de Crippen)
+nBase,0.052,0.036,0.033,3,0.04,grupos básicos
+nARing,0.016,0.028,0.071,3,0.038,anillos aromáticos
+PEOE_VSA6,0.017,0.054,0.027,3,0.033,superficie por rango de carga parcial PEOE (6)
+nAromAtom,0.004,0.023,0.033,3,0.02,átomos aromáticos
+MW,0.154,0.032,,2,0.093,masa molecular
+nHBAcc,0.115,0.031,,2,0.073,aceptores de puentes de H
+FCSP3,0.054,0.032,,2,0.043,fracción de carbonos sp3
+WPath,0.016,0.036,,2,0.026,índice de Wiener (tamaño y compactación)
+BalabanJ,0.007,0.027,,2,0.017,índice de Balaban (ramificación y forma)
+fragCpx,0.001,0.028,,2,0.015,complejidad de fragmentos

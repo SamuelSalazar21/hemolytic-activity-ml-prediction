@@ -1,0 +1,13 @@
+descriptor,importancia,coef_estandarizado,significado
+PEOE_VSA6,0.16633445,,superficie por rango de carga parcial PEOE (6)
+nS,0.13524915,,átomos de azufre
+nAcid,0.099341914,,grupos ácidos
+WPath,0.08274159,,índice de Wiener (tamaño y compactación)
+MW,0.07755696,,masa molecular
+nAromAtom,0.070070095,,átomos aromáticos
+FCSP3,0.06971223,,fracción de carbonos sp3
+nBase,0.06267957,,grupos básicos
+nHBAcc,0.060438786,,aceptores de puentes de H
+SLogP,0.05958659,,lipofilia estimada (logP de Crippen)
+SlogP_VSA5,0.058911666,,superficie por intervalo de contribución a logP (5)
+AMW,0.057377014,,masa atómica media

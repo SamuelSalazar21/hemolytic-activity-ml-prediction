@@ -1,0 +1,13 @@
+descriptor,importancia,coef_estandarizado,significado
+nHBDon,0.22331189315828498,4.613271627176318,donadores de puentes de H
+MW,0.17226209428092829,3.558663270213268,masa molecular
+nHBAcc,0.14746283471004706,-3.0463496673178074,aceptores de puentes de H
+SLogP,0.11740976691882124,2.4255006700250505,lipofilia estimada (logP de Crippen)
+SlogP_VSA5,0.08015090385334403,-1.6557913034084673,superficie por intervalo de contribución a logP (5)
+nBase,0.06518718588286763,-1.346664482736462,grupos básicos
+fragCpx,0.043462016268031936,-0.8978567315582698,complejidad de fragmentos
+FCSP3,0.038060852229279914,0.7862771982817398,fracción de carbonos sp3
+nAcid,0.037833978326462604,-0.781590341151063,grupos ácidos
+PEOE_VSA6,0.034700369477347864,0.7168549229436546,superficie por rango de carga parcial PEOE (6)
+FilterItLogS,0.033969760507864516,0.7017616935513042,solubilidad acuosa estimada (logS)
+AMW,0.006188344386720014,0.1278414381549123,masa atómica media

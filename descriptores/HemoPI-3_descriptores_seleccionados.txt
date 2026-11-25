@@ -1,0 +1,17 @@
+nAcid
+nBase
+nAromAtom
+nS
+BalabanJ
+FCSP3
+fragCpx
+nHBAcc
+nHBDon
+FilterItLogS
+PEOE_VSA6
+SlogP_VSA5
+nARing
+SLogP
+MW
+AMW
+WPath

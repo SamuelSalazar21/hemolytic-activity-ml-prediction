@@ -1,0 +1,5 @@
+,HemoPI-1,HemoPI-2,HemoPI-3
+1. Descriptores iniciales,45,45,45
+2. Tras eliminar NaN > 5%,45,45,45
+3. Tras eliminar constantes,44,44,44
+4. Tras filtro |r| > 0.9,16,17,17

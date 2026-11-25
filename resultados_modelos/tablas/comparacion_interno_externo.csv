@@ -1,0 +1,37 @@
+dataset,modelo,metrica,Entrenamiento,CV,Externa,delta (externa - CV),brecha (entren. - externa)
+HemoPI-1,Regresión logística,accuracy,0.921,0.915,0.882,-0.033,0.039
+HemoPI-1,Regresión logística,roc_auc,0.975,0.966,0.96,-0.006,0.015
+HemoPI-1,Regresión logística,mcc,0.842,0.831,0.764,-0.067,0.078
+HemoPI-1,Regresión logística,f1,0.921,0.915,0.881,-0.034,0.04
+HemoPI-1,Random Forest,accuracy,1.0,0.93,0.936,0.006,0.064
+HemoPI-1,Random Forest,roc_auc,1.0,0.984,0.989,0.004,0.011
+HemoPI-1,Random Forest,mcc,1.0,0.86,0.874,0.014,0.126
+HemoPI-1,Random Forest,f1,1.0,0.93,0.935,0.004,0.065
+HemoPI-1,XGBoost,accuracy,0.999,0.929,0.927,-0.001,0.072
+HemoPI-1,XGBoost,roc_auc,1.0,0.982,0.983,0.001,0.017
+HemoPI-1,XGBoost,mcc,0.998,0.858,0.855,-0.003,0.143
+HemoPI-1,XGBoost,f1,0.999,0.929,0.926,-0.003,0.073
+HemoPI-2,Regresión logística,accuracy,0.714,0.706,0.713,0.007,0.001
+HemoPI-2,Regresión logística,roc_auc,0.78,0.76,0.764,0.004,0.016
+HemoPI-2,Regresión logística,mcc,0.423,0.409,0.422,0.013,0.001
+HemoPI-2,Regresión logística,f1,0.739,0.732,0.734,0.002,0.005
+HemoPI-2,Random Forest,accuracy,0.959,0.766,0.762,-0.004,0.197
+HemoPI-2,Random Forest,roc_auc,0.994,0.834,0.856,0.022,0.138
+HemoPI-2,Random Forest,mcc,0.918,0.53,0.521,-0.009,0.397
+HemoPI-2,Random Forest,f1,0.963,0.786,0.782,-0.004,0.181
+HemoPI-2,XGBoost,accuracy,0.978,0.765,0.757,-0.007,0.22
+HemoPI-2,XGBoost,roc_auc,0.998,0.834,0.83,-0.004,0.168
+HemoPI-2,XGBoost,mcc,0.955,0.529,0.51,-0.019,0.445
+HemoPI-2,XGBoost,f1,0.98,0.781,0.78,-0.001,0.199
+HemoPI-3,Regresión logística,accuracy,0.723,0.713,0.729,0.017,-0.006
+HemoPI-3,Regresión logística,roc_auc,0.783,0.762,0.791,0.029,-0.008
+HemoPI-3,Regresión logística,mcc,0.444,0.424,0.455,0.031,-0.011
+HemoPI-3,Regresión logística,f1,0.743,0.732,0.75,0.018,-0.007
+HemoPI-3,Random Forest,accuracy,1.0,0.742,0.794,0.052,0.206
+HemoPI-3,Random Forest,roc_auc,1.0,0.822,0.859,0.037,0.141
+HemoPI-3,Random Forest,mcc,1.0,0.477,0.583,0.106,0.417
+HemoPI-3,Random Forest,f1,1.0,0.772,0.817,0.045,0.183
+HemoPI-3,XGBoost,accuracy,0.947,0.742,0.748,0.006,0.199
+HemoPI-3,XGBoost,roc_auc,0.986,0.807,0.825,0.018,0.161
+HemoPI-3,XGBoost,mcc,0.893,0.48,0.493,0.013,0.4
+HemoPI-3,XGBoost,f1,0.951,0.764,0.764,0.001,0.186

@@ -1,0 +1,18 @@
+descriptor,importancia,coef_estandarizado,significado
+PEOE_VSA6,0.13204645366401124,,superficie por rango de carga parcial PEOE (6)
+WPath,0.0975295593576235,,índice de Wiener (tamaño y compactación)
+FilterItLogS,0.08010761382111262,,solubilidad acuosa estimada (logS)
+MW,0.06686848571815464,,masa molecular
+SlogP_VSA5,0.06616902371146266,,superficie por intervalo de contribución a logP (5)
+nBase,0.06491761521572115,,grupos básicos
+BalabanJ,0.0649019724786839,,índice de Balaban (ramificación y forma)
+SLogP,0.06303765844580847,,lipofilia estimada (logP de Crippen)
+AMW,0.06214177959596453,,masa atómica media
+FCSP3,0.05970844271617635,,fracción de carbonos sp3
+fragCpx,0.05795752446111529,,complejidad de fragmentos
+nHBDon,0.043076903873689676,,donadores de puentes de H
+nHBAcc,0.04170482840942354,,aceptores de puentes de H
+nAromAtom,0.03623260260279772,,átomos aromáticos
+nS,0.024574508314959147,,átomos de azufre
+nAcid,0.024064329279554278,,grupos ácidos
+nARing,0.014960698333741357,,anillos aromáticos

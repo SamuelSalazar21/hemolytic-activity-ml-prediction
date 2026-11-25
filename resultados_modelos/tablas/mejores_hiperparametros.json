@@ -1,0 +1,50 @@
+{
+  "HemoPI-1 | Regresión logística": {
+    "clf__C": 10,
+    "sel__n_features_to_select": 16
+  },
+  "HemoPI-1 | Random Forest": {
+    "clf__max_depth": null,
+    "clf__min_samples_leaf": 1,
+    "clf__n_estimators": 200,
+    "sel__max_features": 16
+  },
+  "HemoPI-1 | XGBoost": {
+    "clf__learning_rate": 0.1,
+    "clf__max_depth": 5,
+    "clf__n_estimators": 100,
+    "sel__max_features": 10
+  },
+  "HemoPI-2 | Regresión logística": {
+    "clf__C": 10,
+    "sel__n_features_to_select": 12
+  },
+  "HemoPI-2 | Random Forest": {
+    "clf__max_depth": null,
+    "clf__min_samples_leaf": 3,
+    "clf__n_estimators": 400,
+    "sel__max_features": 17
+  },
+  "HemoPI-2 | XGBoost": {
+    "clf__learning_rate": 0.05,
+    "clf__max_depth": 5,
+    "clf__n_estimators": 300,
+    "sel__max_features": 12
+  },
+  "HemoPI-3 | Regresión logística": {
+    "clf__C": 10,
+    "sel__n_features_to_select": 17
+  },
+  "HemoPI-3 | Random Forest": {
+    "clf__max_depth": null,
+    "clf__min_samples_leaf": 1,
+    "clf__n_estimators": 200,
+    "sel__max_features": 17
+  },
+  "HemoPI-3 | XGBoost": {
+    "clf__learning_rate": 0.1,
+    "clf__max_depth": 5,
+    "clf__n_estimators": 100,
+    "sel__max_features": 12
+  }
+}

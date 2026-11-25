@@ -1,0 +1,10 @@
+dataset,modelo,AUC CV,n_desc_disponibles,n_desc_seleccionados,C,n_features_to_select,max_depth,min_samples_leaf,n_estimators,max_features,learning_rate
+HemoPI-1,Regresión logística,0.966,16,16,10.0,16.0,,,,,
+HemoPI-1,Random Forest,0.984,16,16,,,,1.0,200.0,16.0,
+HemoPI-1,XGBoost,0.982,16,10,,,5.0,,100.0,10.0,0.1
+HemoPI-2,Regresión logística,0.76,17,12,10.0,12.0,,,,,
+HemoPI-2,Random Forest,0.834,17,17,,,,3.0,400.0,17.0,
+HemoPI-2,XGBoost,0.834,17,12,,,5.0,,300.0,12.0,0.05
+HemoPI-3,Regresión logística,0.762,17,17,10.0,17.0,,,,,
+HemoPI-3,Random Forest,0.822,17,17,,,,1.0,200.0,17.0,
+HemoPI-3,XGBoost,0.807,17,12,,,5.0,,100.0,12.0,0.1

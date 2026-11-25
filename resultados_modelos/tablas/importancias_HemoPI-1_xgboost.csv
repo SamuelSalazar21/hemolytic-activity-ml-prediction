@@ -1,0 +1,11 @@
+descriptor,importancia,coef_estandarizado,significado
+nAcid,0.46793312,,grupos ácidos
+FilterItLogS,0.13770701,,solubilidad acuosa estimada (logS)
+nS,0.11704867,,átomos de azufre
+nARing,0.07088426,,anillos aromáticos
+AMW,0.053018905,,masa atómica media
+nBase,0.033373274,,grupos básicos
+nAromAtom,0.033013515,,átomos aromáticos
+SLogP,0.030141057,,lipofilia estimada (logP de Crippen)
+nHBDon,0.029881712,,donadores de puentes de H
+PEOE_VSA6,0.026998458,,superficie por rango de carga parcial PEOE (6)
